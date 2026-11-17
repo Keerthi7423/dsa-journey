@@ -1,0 +1,328 @@
+Day 1 – JavaScript Fundamentals
+Complete practical notes
+ 15 questions covered
+
+1. var, let and const
+Example 1 – var
+var name = "Keerthi";
+var name = "Kumar";
+
+console.log(name);
+
+// Output:
+// Kumar
+
+// Explanation:
+// var allows redeclaration and reassignment.
+
+
+Example 2 – let
+let age = 24;
+
+age = 25;
+
+console.log(age);
+
+// Output:
+// 25
+
+// Explanation:
+// let allows reassignment.
+// let does not allow redeclaration in the same scope.
+
+
+Example 3 – const
+const city = "Bengaluru";
+
+console.log(city);
+
+// Output:
+// Bengaluru
+
+// Explanation:
+// const does not allow reassignment.
+
+
+Test this yourself:
+const score = 100;
+score = 200;
+
+console.log(score);
+
+
+Expected result: TypeError.
+2. Data types and typeof
+let name = "Keerthi";
+let age = 24;
+let isDeveloper = true;
+let salary;
+let city = null;
+
+console.log(typeof name);
+console.log(typeof age);
+console.log(typeof isDeveloper);
+console.log(typeof salary);
+console.log(typeof city);
+
+// Output:
+// string
+// number
+// boolean
+// undefined
+// object
+
+
+Important special cases:
+console.log(typeof null);       // object
+console.log(typeof NaN);        // number
+console.log(typeof undefined);  // undefined
+console.log(typeof []);         // object
+
+
+Explanation:
+- null is a primitive value despite its typeof result.
+- NaN is a special numeric value.
+- Arrays return "object" with typeof.
+3. Variable reassignment
+let a = 10;
+
+a = 20;
+
+console.log(a);
+
+// Output:
+// 20
+
+
+Another example:
+let x = 10;
+let y = 20;
+
+x = y;
+
+console.log(x);
+
+// Output:
+// 20
+
+
+4. Arithmetic operators
+let a = 10;
+let b = 3;
+
+console.log(a + b);  // 13
+console.log(a - b);  // 7
+console.log(a * b);  // 30
+console.log(a / b);  // 3.3333333333333335
+console.log(a % b);  // 1
+console.log(a ** b); // 1000
+
+
+Operator precedence:
+console.log(10 + 5 * 2);
+
+// Output: 20
+
+console.log((10 + 5) * 2);
+
+// Output: 30
+
+
+Explanation: Multiplication takes priority over addition unless parentheses change the order.
+5. Type conversion
+String to Number
+let value = "100";
+
+let result = Number(value);
+
+console.log(result);
+console.log(typeof result);
+
+// Output:
+// 100
+// number
+
+
+Number to String
+let age = 24;
+
+let result = String(age);
+
+console.log(result);
+console.log(typeof result);
+
+// Output:
+// 24
+// string
+
+
+Conversion to Boolean
+console.log(Boolean(1));      // true
+console.log(Boolean(0));      // false
+console.log(Boolean(""));     // false
+console.log(Boolean("Hello"));// true
+
+
+NaN example
+let value = Number("hello");
+
+console.log(value);
+console.log(typeof value);
+console.log(Number.isNaN(value));
+
+// Output:
+// NaN
+// number
+// true
+
+
+6. var redeclaration
+var x = 10;
+
+var x = 20;
+
+console.log(x);
+
+// Output:
+// 20
+
+
+Compare with:
+let x = 10;
+let x = 20;
+
+// SyntaxError: Identifier 'x' has already been declared
+
+
+7. Hoisting
+var hoisting
+console.log(a);
+
+var a = 10;
+
+console.log(a);
+
+// Output:
+// undefined
+// 10
+
+
+Conceptually:
+var a;
+
+console.log(a);
+
+a = 10;
+
+console.log(a);
+
+
+let hoisting and TDZ
+console.log(a);
+
+let a = 10;
+
+// Output:
+// ReferenceError
+
+
+Explanation: let is hoisted but cannot be accessed before initialization. This is called the Temporal Dead Zone.
+8. Block scope
+let a = 10;
+
+{
+    let a = 20;
+
+    console.log(a);
+}
+
+console.log(a);
+
+// Output:
+// 20
+// 10
+
+
+Explanation:
+- Outer a = 10.
+- Inner a = 20.
+- Inner variable exists only inside the block.
+- Outer variable remains 10.
+9. == vs ===
+let x = "5";
+let y = 5;
+
+console.log(x == y);
+console.log(x === y);
+
+// Output:
+// true
+// false
+
+
+Explanation:
+- == performs type coercion when needed.
+- === compares without type coercion.
+Prefer === in normal JavaScript development.
+10. Execution context introduction
+var name = "Keerthi";
+
+function greet() {
+    console.log("Hello " + name);
+}
+
+greet();
+
+// Output:
+// Hello Keerthi
+
+
+Explanation:
+1. JavaScript creates the global execution context.
+2. It processes declarations.
+3. It executes statements.
+4. When greet() is called, a function execution context is created.
+5. The function executes and returns.
+
+11. Your 15-question answer reference
+Use this table to revise the questions from our three rounds.
+Question	Concept	Correct answer
+Easy Q1	const	C
+Easy Q2	typeof number	B
+Easy Q3	Reassignment	B
+Easy Q4	Precedence	B
+Easy Q5	Number conversion	B
+Medium Q1	const reassignment	D
+Medium Q2	String coercion	B
+Medium Q3	var redeclaration	B
+Medium Q4	typeof null	C
+Medium Q5	Exponentiation and remainder	B
+Hard Q1	var hoisting	A
+Hard Q2	TDZ	C
+Hard Q3	Block scope	C
+Hard Q4	== vs ===	C
+Hard Q5	NaN	A
+
+12. How to test in VS Code
+Create a folder called javascript-week-1.
+
+Inside it, create:
+javascript-week-1/
+    day-1/
+        01-variables.js
+        02-datatypes.js
+        03-reassignment.js
+        04-arithmetic.js
+        05-type-conversion.js
+        06-hoisting.js
+        07-block-scope.js
+        08-equality.js
+        09-execution-context.js
+
+
+Run each file in the VS Code terminal:
+node 01-variables.js
+
+
+Change the values, predict the output, execute the code and compare your prediction.
+
